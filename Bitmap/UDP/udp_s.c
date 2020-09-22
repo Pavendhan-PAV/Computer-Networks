@@ -60,7 +60,7 @@ int main(){
   		else
   			printf("[+]File opened succesfully.\n[+]Writing...\n");
         bzero(buffer, SIZE);
-		
+		usleep(1000);
         n = recvfrom(sockfd, buffer, SIZE, 0, (struct sockaddr *)&new_addr, &l);
         
         while (n)
