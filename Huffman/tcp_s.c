@@ -46,16 +46,16 @@ int ServerCreate(int port) // Return 1 for error
 struct lookup
 {
 	char s;
-	char code[200];
+	char code[10000];
 };
 
-struct lookup LookUpTable[200];
+struct lookup LookUpTable[10000];
 
 void Decoder(char seq[], char chars[], int n)
 {
 	int fd, k = 0;
 	char buffer[SIZE];
-	char code[200];
+	char code[10000];
 	int code_size = 0;
 	if ((fd = open("new.txt", O_CREAT | O_WRONLY, 0600)) == -1)
 	{
@@ -123,8 +123,8 @@ int main()
 	{
 		printf("[+]Server Started...\n");
 
-		char encodedseq[200];
-		char chars[200];
+		char encodedseq[10000];
+		char chars[10000];
 
 		char s[1];
 		char code[100];

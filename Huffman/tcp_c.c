@@ -48,18 +48,18 @@ struct node
 struct lookup
 {
 	char s;
-	char code[200];
+	char code[10000];
 };
 
-char s[200];
-char ds[200];
-int f[200];
+char s[10000];
+char ds[10000];
+int f[10000];
 int n;
 int nc;
-struct lookup LookUpTable[200];
+struct lookup LookUpTable[10000];
 int lookup_size;
 
-char encodedseq[200] = "";
+char encodedseq[10000] = "";
 
 ////////////////////////////////////////////////////
 
@@ -157,9 +157,9 @@ void BuildTree(int a[], char c[], int size, struct node *ptrarr[])
 {
 	if (size > 1)
 	{
-		int b[200];
-		char t[200];
-		struct node *nparr[200];
+		int b[10000];
+		char t[10000];
+		struct node *nparr[10000];
 		struct node *ptr = malloc(sizeof(struct node));
 
 		int temp = a[0] + a[1];
@@ -374,14 +374,14 @@ int main()
 
 		if (choice == 1)
 		{
-			struct node *ptrarr[200];
+			struct node *ptrarr[10000];
 			for (int i = 0; i < nc; i++)
 				ptrarr[i] = NULL;
 			BuildTree(f, ds, nc, ptrarr);
 			printf("\n\n");
 
 			printf("------------Encoder Variable Size----------\n\n");
-			char en[200];
+			char en[10000];
 			LookupTable(rptr, en, 0, 1, "");
 			Encoder();
 			printf("\n-------------------------------------------\n");
@@ -389,7 +389,7 @@ int main()
 		else if (choice == 0)
 		{
 			printf("\n------------Encoder Constant Size----------\n\n");
-			char en[200];
+			char en[10000];
 			LookupTable(rptr, en, 0, 0, ds);
 			Encoder();
 			printf("\n-------------------------------------------\n");
